@@ -1,0 +1,9 @@
+LICENSE   := GPLv2
+VERSION   := git
+DOWNLOADS := nova-hypervisor.git
+
+# release-22.52.0-0-gd13c828-genode branch
+URL(nova-hypervisor) := https://github.com/a-dmg/NOVA.git
+REV(nova-hypervisor) := release-22.52.0-0-gd13c828-genode
+DIR(nova-hypervisor) := src/kernel/nova
+
