@@ -1,0 +1,17 @@
+This repository contains the NOVA r.22.52 port for Genode.
+
+The NOVA microhypervisor combines microkernel and hypervisor functionality
+and provides an extremely small trusted computing base for user applications
+and virtual machines running on top of it. The microhypervisor implements a
+capability-based authorization model and provides basic mechanisms for
+virtualization, spatial and temporal separation, scheduling, communication,
+and management of platform resources.
+
+For more information on this base platform, please refer to the official
+website.
+
+:[http://hypervisor.org]: Official website for the NOVA microhypervisor.
+
+This repository is linked to the AGPLv3 LICENSE held by Genode Labs. However
+the distributed NOVA binary is under the GPLv2 held by Udo Steinberg.
+
