@@ -1,5 +1,8 @@
 This repository contains the NOVA r.22.52 port for Genode.
 
+Brief
+=====
+
 The NOVA microhypervisor combines microkernel and hypervisor functionality
 and provides an extremely small trusted computing base for user applications
 and virtual machines running on top of it. The microhypervisor implements a
@@ -15,3 +18,28 @@ website.
 This repository is linked to the AGPLv3 LICENSE held by Genode Labs. However
 the distributed NOVA binary is under the GPLv2 held by Udo Steinberg.
 
+Getting Started
+===============
+
+Clone this repository and sim-link it into your local copy of Genode under the
+'repos/' directory.
+
+Currently only x86_64 is supported, but aarch64 is also intended to be made
+available.
+
+Into your build conf located at 'genode/build/x86_64/etc/build.conf' update the
+boot_dir selection with:
+
+! NOVA_HYPERVISOR_DIR:= /<path_to>/base-nova-hypervisor
+! ifdef KERNEL
+! ifeq (KERNEL, nova-hypervisor)
+! RUN_OPT += --include $(NOVA_HYPERVISOR_DIR)boot_dir/$(KERNEL)
+! else
+! RUN_OPT += --include boot_dir/$(KERNEL)
+! endif
+! endif
+
+This avoid having changes into the genode git repository for the bood_dir
+generation script.
+
+You can now run 'make run/nova-hypervisor'

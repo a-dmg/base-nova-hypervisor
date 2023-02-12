@@ -1,0 +1,21 @@
+build "core init"
+
+create_boot_directory
+
+set config {
+	<config>
+		<parent-provides>
+			<service name="ROM"/>
+			<service name="CPU"/>
+			<service name="RM"/>
+			<service name="PD"/>
+			<service name="LOG"/>
+		</parent-provides>
+	</config>
+}
+
+install_config $config
+
+build_boot_image "core ld.lib.so init"
+
+run_genode_until forever
